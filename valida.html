@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function verifica(){
+            if (document.forms[0].email.value.length == 0){
+                alert("Informe seu email")
+                document.frmEnvia.email.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function checarEmail(){
+            if (document.forms[0].email.value == "" 
+            || document.forms[0].email.value.indexOf('@') == -1
+            || document.forms[0].email.value.indexOf('.') == -1){
+                alert("Informe um email válido");
+                return false;
+            }
+
+        }
+    </script>
+
+
+    <form method="post" onsubmit="return( verifica() )" name="frmEnvia">
+    <label for="email">Email</label>
+    <input name="email" type="email" id="email" onblur="checarEmail ();"/>
+    <input name="submit" type="submit" value=" ENVIAR "/>
+    </form>
+</body>
+</html>
